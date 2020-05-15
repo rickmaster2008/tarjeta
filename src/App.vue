@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <br><br>
+    <br />
+    <br />
     <Form @formato="generate" v-if="!showCard" />
-    <Home :file="file" :name="name" v-if="showCard" />
+    <Home :file="file" :name="name" :phone="phone" v-if="showCard" />
   </div>
 </template>
 
@@ -15,13 +16,15 @@ export default {
     return {
       showCard: false,
       name: "",
-      file: ""
+      file: "",
+      phone: ""
     };
   },
   methods: {
     generate(data) {
       this.name = data.name;
       this.file = data.file;
+      this.phone = data.phone;
       this.showCard = true;
     }
   },

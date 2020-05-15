@@ -9,7 +9,7 @@
           <form @submit="submitData">
             <b-form-group id="nombre" label="Nombre" label-for="nombre">
               <b-form-input
-                id="input-1"
+                id="nombre"
                 v-model="name"
                 type="text"
                 required
@@ -17,7 +17,17 @@
                 placeholder="Ingresa tu nombre"
               />
             </b-form-group>
-            <b-form-group id="nombre" label="Imagen" label-for="nombre">
+            <b-form-group id="nombre" label="Celular" label-for="phone">
+              <b-form-input
+                id="phone"
+                v-model="phone"
+                type="tel"
+                required
+                name="phone"
+                placeholder="Ingresa tu celular"
+              />
+            </b-form-group>
+            <b-form-group id="nombre" label="Imagen">
               <b-form-file
                 v-model="file"
                 :state="Boolean(file)"
@@ -41,13 +51,18 @@ export default {
   data() {
     return {
       name: "",
-      file: ""
+      file: "",
+      phone: ""
     };
   },
   methods: {
     submitData(e) {
       e.preventDefault();
-      this.$emit("formato", { name: this.name, file: this.file });
+      this.$emit("formato", {
+        name: this.name,
+        file: this.file,
+        phone: this.phone
+      });
     }
   }
 };

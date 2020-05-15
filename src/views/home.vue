@@ -1,15 +1,16 @@
 <template>
   <div id="container">
-    <div id="download-button" @click="downloadCard">
-      <font-awesome-icon icon="download" size="2x" />
-    </div>
     <div id="background" ref="card">
       <div
         v-if="imageData.length > 0"
         id="picture"
         :style="{background: `url(${imageData})`, 'background-size': 'cover', 'background-position': 'center'}"
       ></div>
-      <span id="name">{{name}}</span>
+      <span id="name">{{name.toUpperCase()}}</span>
+      <span id="phone">{{phone}}</span>
+    </div>
+    <div id="download-button" @click="downloadCard">
+      <font-awesome-icon icon="download" size="2x" />
     </div>
   </div>
 </template>
@@ -18,7 +19,7 @@
 import htmlToImage from "html-to-image";
 import download from "downloadjs";
 export default {
-  props: ["name", "file"],
+  props: ["name", "file", "phone"],
   data() {
     return {
       imageData: ""
@@ -86,7 +87,17 @@ export default {
   top: -71px;
   left: 325px;
   font-weight: bold;
+  font-size: 40px;
+  font-family: 'Avenir' sans-serif;
+}
+
+#phone {
+  position: relative;
+  font-weight: bold;
   font-size: 50px;
+  top: 120px;
+  left: -47px;
+  font-family: 'Avenir' sans-serif;
 }
 
 #download-button {
