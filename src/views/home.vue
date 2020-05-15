@@ -1,5 +1,8 @@
 <template>
   <div id="container">
+    <div id="download-button" @click="downloadCard">
+      <font-awesome-icon icon="download" size="2x" />
+    </div>
     <div id="background" ref="card">
       <div
         v-if="imageData.length > 0"
@@ -7,10 +10,6 @@
         :style="{background: `url(${imageData})`, 'background-size': 'cover', 'background-position': 'center'}"
       ></div>
       <span id="name">{{name}}</span>
-    </div>
-    <input type="file" name="uploader" id="uploader" ref="uploader" @change="renderImage" />
-    <div id="download-button" @click="downloadCard">
-      <font-awesome-icon icon="download" size="2x"/>
     </div>
   </div>
 </template>
@@ -91,14 +90,13 @@ export default {
 }
 
 #download-button {
-  position: fixed;
   cursor: pointer;
   background: #4287f5;
   padding: 20px;
-  border-radius: 100px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
   box-shadow: grey;
   color: white;
-  left: 20px;
-  bottom: 20px;
 }
 </style>
