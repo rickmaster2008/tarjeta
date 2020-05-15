@@ -1,19 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <br><br>
+    <Form @formato="generate" v-if="!showCard" />
+    <Home :file="file" :name="name" v-if="showCard" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Home from "./views/home";
+import Form from "./views/form";
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      showCard: false,
+      name: "",
+      file: ""
+    };
+  },
+  methods: {
+    generate(data) {
+      this.name = data.name;
+      this.file = data.file;
+      this.showCard = true;
+    }
+  },
   components: {
-    HelloWorld
+    Home,
+    Form
   }
-}
+};
 </script>
 
 <style>
@@ -21,8 +37,5 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
