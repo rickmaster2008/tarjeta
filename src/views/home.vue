@@ -6,8 +6,8 @@
         id="picture"
         :style="{background: `url(${imageData})`, 'background-size': 'cover', 'background-position': 'center'}"
       ></div>
-      <span id="name">{{name.toUpperCase()}}</span>
-      <span id="phone">{{phone}}</span>
+      <h1 id="name">{{name.toUpperCase()}}</h1>
+      <h1 id="phone">{{phone}}</h1>
     </div>
     <div id="download-button" @click="downloadCard">
       <font-awesome-icon icon="download" size="2x" />
@@ -84,7 +84,7 @@ export default {
 
 #name {
   position: relative;
-  top: -71px;
+  top: -55px;
   left: 325px;
   font-weight: bold;
   font-size: 40px;
@@ -95,8 +95,8 @@ export default {
   position: relative;
   font-weight: bold;
   font-size: 50px;
-  top: 120px;
-  left: -47px;
+  top: 70px;
+  left: 325px;
   font-family: 'Avenir' sans-serif;
 }
 
