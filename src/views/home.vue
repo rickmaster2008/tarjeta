@@ -66,6 +66,7 @@ export default {
   width: 800px;
   height: 800px;
   background: url("../assets/img1.jpeg");
+  overflow: hidden;
 }
 
 #uploader {
